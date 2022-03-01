@@ -1,5 +1,5 @@
 {% set name = "kfp-pipeline-spec" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://pypi.io/packages/py3/{{ name[0] }}/{{ name }}/kfp_pipeline_spec-{{ version }}-py3-none-any.whl
-    sha256: 5e0d62681bf0567b2700b826a46c842c1e23a4b2ed4979f40a629c25cce4b960
+    sha256: 213a3ee027eb11198543ff90fb6b920f2eec2e22765ba85c5bc9d448352c8286
 build:
   number: 0
   noarch: python
   script:
-  - python -m pip install --no-deps --ignore-installed ./kfp_pipeline_spec-{{ version }}-py3-none-any.whl
+    - python -m pip install --no-deps --ignore-installed ./kfp_pipeline_spec-{{ version }}-py3-none-any.whl
 
 requirements:
   host:
