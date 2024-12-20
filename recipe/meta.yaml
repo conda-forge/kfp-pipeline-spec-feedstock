@@ -9,17 +9,17 @@ source:
   - url: https://pypi.org/packages/py3/{{ name[0] }}/{{ name }}/kfp_pipeline_spec-{{ version }}-py3-none-any.whl
     sha256: 9e319b62eaa54c6790a96f796d34f071458c9cae9585c662629eb090688555a7
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - python -m pip install --no-deps --ignore-installed ./kfp_pipeline_spec-{{ version }}-py3-none-any.whl
 
 requirements:
   host:
-    - python >=3.7.0
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.7.0
+    - python >={{ python_min }}
     - protobuf >=4.21.1,<5
     - googleapis-common-protos
 
@@ -30,6 +30,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/kubeflow/pipelines
